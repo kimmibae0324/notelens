@@ -1,86 +1,183 @@
 # 🎧 NoteLens
 
-> 영어 전공 강의를 듣는 순간부터 복습까지 도와주는 AI 기반 강의 학습 도우미
+> **영어 전공 강의를 듣는 순간부터 복습까지 이어주는 AI 강의 학습 도우미**
 
-NoteLens는 영어로 진행되는 전공 강의를 보다 쉽게 이해하고 복습할 수 있도록 만든 웹 서비스입니다.
+NoteLens는 영어로 진행되는 전공 강의를 보다 쉽게 이해하고 복습할 수 있도록 만든 웹 기반 AI 학습 도구입니다.
 
-강의 음성 파일을 업로드하거나 직접 녹음하면 AI가 음성을 분석하여
-한국어 번역, 핵심 개념, 시험 포인트, 전공 용어를 자동으로 정리합니다.
+강의 음성을 업로드하거나 브라우저에서 직접 녹음하면 AI가 음성을 분석하여 **원문 전사, 한국어 번역, 핵심 개념, 시험 포인트, 전공 용어**를 하나의 학습 노트로 정리합니다.
 
-또한 Live Mode를 통해 수업 중 마이크 입력을 기반으로
-준실시간 한국어 자막과 강의 노트를 생성할 수 있습니다.
+또한 **Live Mode**를 통해 수업 중 음성을 일정 구간마다 분석해 준실시간 한국어 자막을 생성하고, 강의가 끝난 뒤 누적된 내용을 바탕으로 강의 노트를 만들 수 있습니다.
 
 ---
 
-## ✨ 주요 기능
+## 💡 Why NoteLens?
+
+영어 전공 강의를 복습할 때는 단순히 강의를 다시 듣는 것만으로 끝나지 않습니다.
+
+음성을 다시 듣고,
+영어 내용을 이해하고,
+필요한 부분을 번역하고,
+핵심 개념과 시험 내용을 다시 정리해야 합니다.
+
+NoteLens는 이 과정을
+
+**Audio → Transcript → Translation → Key Concepts → Study Notes**
+
+하나의 흐름으로 연결하는 것을 목표로 개발했습니다.
+
+---
+
+## ✨ Features
 
 ### 📚 Study Mode
 
-강의 녹음 파일을 업로드하거나 직접 음성을 녹음하여 AI 학습 노트를 생성합니다.
+기존 강의 녹음 파일을 업로드하거나 브라우저에서 직접 녹음하여 학습 노트를 생성합니다.
 
-- 강의 음성 전사
-- 한국어 번역
-- 핵심 개념 요약
-- 시험 포인트 정리
-- 전공 용어 정리
-- 여러 개의 강의 파일 연속 분석
+* 강의 음성 파일 업로드
+* 여러 개의 음성 파일 연속 분석
+* 브라우저 마이크를 이용한 직접 녹음
+* 영어 원문 전사
+* 자연스러운 한국어 번역
+* 핵심 개념 요약
+* 시험 포인트 정리
+* 전공 용어 정리
+* 전체 결과 클립보드 복사
 
-지원 형식
+지원하는 주요 오디오 형식:
 
-- mp3
-- wav
-- m4a
-- webm
+`mp3` · `wav` · `m4a` · `webm`
+
+> 긴 음성 파일의 경우 여러 파트로 나누어 업로드할 수 있으며, 각 파일을 순서대로 분석합니다.
 
 ---
 
 ### 🎙️ Live Mode
 
-수업 중 마이크를 사용하여 강의 내용을 분석합니다.
+수업 중 마이크 입력을 일정 구간으로 나누어 AI가 반복적으로 분석합니다.
 
-- 마이크 기반 강의 녹음
-- 준실시간 한국어 자막 생성
-- Live Caption 누적
-- 강의 종료 후 자동 학습 노트 생성
+* 브라우저 마이크 입력
+* 약 30초 단위 오디오 처리
+* 영어 강의 → 한국어 자막 변환
+* 생성된 Live Caption 누적
+* 자막 전체 복사
+* Live 종료 후 누적 자막 기반 강의 노트 생성
 
----
+강의가 종료되면 누적된 자막을 이용하여 다음 내용을 정리합니다.
 
-## 🧠 과목별 맞춤 번역
-
-강의의 전공 맥락을 고려하여 용어를 번역할 수 있도록
-과목별 프롬프트를 구성했습니다.
-
-현재 지원 과목
-
-- 통계학
-- 머신러닝
-- 추천시스템
-- 일반 영어
-
-예를 들어 머신러닝 강의에서는
-
-- overfitting → 과적합
-- gradient descent → 경사하강법
-- loss function → 손실 함수
-
-와 같이 전공 용어의 의미를 유지하여 번역합니다.
+* 오늘 강의 요약
+* 핵심 개념
+* 시험 포인트
+* 전공 용어
 
 ---
 
-## 📝 AI 분석 결과
+## 🧠 Lecture Context
 
-Study Mode에서는 강의 음성을 다음과 같은 구조로 정리합니다.
+사용자는 분석 전 강의 과목을 선택할 수 있습니다.
 
-1. 음성 유형 판단
-2. 원문 전사
-3. 한국어 번역
-4. 핵심 개념 요약
-5. 시험 포인트
-6. 전공 용어 정리
+현재 UI에서 선택 가능한 과목:
 
-단순한 강의 요약이 아니라,
-원래 강의의 설명 순서와 예시, 계산 과정 등을 최대한 유지하면서
-번역 결과와 학습용 요약을 분리하도록 설계했습니다.
+* 수학
+* 통계학
+* 머신러닝
+* 추천시스템
+* 일반 영어
+
+일부 전공에는 별도의 용어 가이드를 적용하여 번역 과정에서 전공 맥락을 최대한 유지하도록 구성했습니다.
+
+예를 들어 머신러닝에서는 다음과 같은 용어를 일관되게 처리합니다.
+
+```text
+overfitting        → 과적합
+underfitting       → 과소적합
+gradient descent   → 경사하강법
+loss function      → 손실 함수
+classification     → 분류
+regression         → 회귀
+```
+
+추천시스템에서는 다음과 같은 전공 용어를 처리합니다.
+
+```text
+collaborative filtering   → 협업 필터링
+content based filtering   → 콘텐츠 기반 필터링
+matrix factorization      → 행렬 분해
+similarity                → 유사도
+```
+
+---
+
+## 📝 Study Mode Output
+
+강의 분석 결과는 다음과 같은 구조로 분리하여 표시합니다.
+
+### 1. 음성 유형 판단
+
+입력된 음성이 강의, 노래, 대화 또는 기타 유형인지 판단합니다.
+
+### 2. 원문 전사
+
+음성에서 들리는 영어 내용을 텍스트로 전사합니다.
+
+### 3. 한국어 번역
+
+단순 요약이 아니라 교수자의 설명 순서와 논리 흐름을 유지하며 한국어로 번역합니다.
+
+### 4. 핵심 개념 요약
+
+강의에서 중요한 개념을 별도로 정리합니다.
+
+### 5. 시험 포인트
+
+시험에 출제될 가능성이 있는 내용과 헷갈리기 쉬운 부분을 추출합니다.
+
+### 6. 전공 용어 정리
+
+강의에서 등장한 영어 전공 용어와 대응하는 한국어 표현을 정리합니다.
+
+---
+
+## 🏗 Architecture
+
+```text
+                          ┌──────────────────┐
+                          │       User       │
+                          └────────┬─────────┘
+                                   │
+                    ┌──────────────┴──────────────┐
+                    │                             │
+              📚 Study Mode                 🎙️ Live Mode
+                    │                             │
+         Audio Upload / Recording          Microphone Input
+                    │                             │
+                    ▼                             ▼
+             /api/translate              /api/live-caption
+                    │                             │
+                    └──────────────┬──────────────┘
+                                   │
+                                   ▼
+                            Google Gemini API
+                                   │
+                    ┌──────────────┴──────────────┐
+                    │                             │
+              Study Notes                  Live Captions
+                                                  │
+                                                  ▼
+                                         /api/live-summary
+                                                  │
+                                                  ▼
+                                           Lecture Notes
+```
+
+---
+
+## 🔌 API Routes
+
+| Route               | Purpose                      |
+| ------------------- | ---------------------------- |
+| `/api/translate`    | 강의 음성 전사, 번역 및 학습 노트 생성      |
+| `/api/live-caption` | Live Mode 음성 구간을 한국어 자막으로 변환 |
+| `/api/live-summary` | 누적된 Live Caption을 강의 노트로 정리  |
 
 ---
 
@@ -88,60 +185,62 @@ Study Mode에서는 강의 음성을 다음과 같은 구조로 정리합니다.
 
 ### Frontend
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
+* **Next.js**
+* **React**
+* **TypeScript**
+* **Tailwind CSS**
+
+### Backend
+
+* **Next.js Route Handlers**
+* Web Media APIs
+* MediaRecorder API
 
 ### AI
 
-- Google Gemini API
-
-### Web API
-
-- Next.js Route Handler
+* **Google Gemini API**
+* Gemini 2.5 Flash-Lite
+* Gemini 2.0 Flash-Lite
 
 ---
 
-## 🏗 Architecture
+## 📁 Project Structure
 
 ```text
-User
- │
- ├─ Study Mode
- │    └─ Audio Upload / Recording
- │
- └─ Live Mode
-      └─ Microphone Recording
-             │
-             ▼
-       Next.js Frontend
-             │
-             ▼
-       Next.js API Routes
-       ├─ /api/translate
-       ├─ /api/live-caption
-       └─ /api/live-summary
-             │
-             ▼
-        Gemini API
-             │
-             ▼
- Translation / Caption / Study Notes
+notelens/
+├── app/
+│   ├── api/
+│   │   ├── live-caption/
+│   │   │   └── route.ts
+│   │   ├── live-summary/
+│   │   │   └── route.ts
+│   │   └── translate/
+│   │       └── route.ts
+│   │
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+│
+├── public/
+├── .gitignore
+├── package.json
+├── next.config.ts
+├── tsconfig.json
+└── README.md
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Repository Clone
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/kimmibae0324/notelens.git
 cd notelens
 ```
 
-### 2. Dependencies
+### 2. Install Dependencies
 
 ```bash
 npm install
@@ -155,15 +254,15 @@ npm install
 GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 ```
 
-API Key는 GitHub에 업로드하지 않습니다.
+> API Key와 같은 민감한 정보는 GitHub에 업로드하지 않습니다.
 
-### 4. Run
+### 4. Run Development Server
 
 ```bash
 npm run dev
 ```
 
-브라우저에서 아래 주소로 접속합니다.
+브라우저에서 다음 주소로 접속합니다.
 
 ```text
 http://localhost:3000
@@ -171,54 +270,54 @@ http://localhost:3000
 
 ---
 
-## 📁 Project Structure
+## 🔄 How It Works
+
+### Study Mode
 
 ```text
-notelens
-├── app
-│   ├── api
-│   │   ├── live-caption
-│   │   ├── live-summary
-│   │   └── translate
-│   │
-│   ├── page.tsx
-│   ├── layout.tsx
-│   └── globals.css
-│
-├── public
-├── package.json
-└── README.md
+Audio File
+    ↓
+Base64 Encoding
+    ↓
+Gemini API
+    ↓
+Transcript
+    ↓
+Korean Translation
+    ↓
+Key Concepts
+    ↓
+Exam Points
+    ↓
+Terminology
+    ↓
+Study Note UI
+```
+
+### Live Mode
+
+```text
+Microphone
+    ↓
+Audio Chunk Recording
+    ↓
+Gemini API
+    ↓
+Korean Caption
+    ↓
+Caption Accumulation
+    ↓
+End Live Mode
+    ↓
+Gemini Summary
+    ↓
+Lecture Note
 ```
 
 ---
 
-## 💡 Motivation
+## 👩‍💻 Project
 
-영어로 진행되는 전공 강의를 들을 때 단순히 내용을 번역하는 것만으로는
-효율적인 복습이 어렵다는 점에서 프로젝트를 시작했습니다.
-
-강의 내용을 다시 들으면서 번역하고,
-중요한 개념과 시험 내용을 따로 정리해야 하는 과정을 줄이기 위해
-
-**음성 → 번역 → 개념 정리 → 복습 노트**
-
-과정을 하나의 서비스 안에서 처리하는 것을 목표로 했습니다.
-
----
-
-## 🔮 Future Work
-
-- 강의 노트 저장 기능
-- 사용자별 과목 관리
-- 이전 강의 검색
-- PDF / 강의자료 연동
-- 생성된 노트 다운로드
-- Live Caption 품질 개선
-
----
-
-## 👩‍💻 Developer
-
-**Kim Mibae**
+**NoteLens**
 
 Personal Project
